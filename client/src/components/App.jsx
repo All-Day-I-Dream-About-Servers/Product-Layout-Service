@@ -8,16 +8,24 @@ import ProductInfo from './ProductInfo.jsx'
 // var aIndex = randomIndex();
 // var selected = arr[aIndex];
 
+// var sampleProduct = this.state.products[selected]
+  // console.log(sampleProduct)
+
+        // sku: 0,
+        // name: "",
+        // price: 0,
+        // color: [],
+        // sizes : [],
+        // review: 0,
+        // colorImages : [],
+        // images: []
+
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       products: [],
-      // name: "",
-      // price: 0,
-      // colors: [],
-      // sizes : [],
-      // images: []
+      product : {}
     }
     this.getProducts  = this.getProducts.bind(this);
   }
@@ -27,46 +35,28 @@ class App extends React.Component {
   }
 
   getProducts(){
-    axios.get('http://localhost:3003/api/products')
+    axios.get(`http://localhost:3002/api/products`)
     .then((info) =>
       this.setState({
         products: info.data,
-        // sku: 0,
-        // name: "",
-        // price: 0,
-        // color: [],
-        // sizes : [],
-        // review: 0,
-        // colorImages : [],
-        // images: []
-      })
-    )
+        // product: info.data[0]
+      }
+    ), () => console.log(this.state.product))
     .catch(err => console.log(err))
   }
 
   render(){
-    // {this.state.products.map((product, index) =>
-    //   <ProductInfo product={this.state.products[0]}/>
-    // )}
-    console.log(this.state.products)
-
-    var arr = [0, 1, 11, 29, 95];
-    var randomIndex = () => Math.floor(Math.random() * Math.floor(5));
-    var aIndex = randomIndex();
-    var selected = arr[aIndex];
-
-    var sampleProduct = this.state.products[selected]
-    console.log(sampleProduct)
-    return(
-      <div>
+    var productArr = []
+    return (<div>
+          {/* {this.state.products.map((product, index) =>
+              productArr.push(product)
+          )} */}
           {this.state.products.map((product, index) =>
-            <ProductInfo product={sampleProduct}/>
+            <ProductInfo product={product}/>
           )}
-          {/* <div>
-            <ProductInfo product={sampleProduct}/>
-          </div> */}
-      </div>
-    )
+          {/* {setTimeout(() => <ProductInfo product={this.state.products[0]}/>, 0)} */}
+         {/* { this.state.product && <ProductInfo product={this.state.product}/>} */}
+      </div>)
   }
 }
 

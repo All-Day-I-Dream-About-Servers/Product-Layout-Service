@@ -6,6 +6,12 @@ const controller = {
     .get()
     .then((info)=> res.status(200).send(info))
     .catch(err => res.status(400).send(err))
+  },
+  getOne: (req, res) => {
+    helpers
+    .get(req.params.sku)
+    .then((info)=> res.status(200).send(info))
+    .catch(err => res.status(400).send(err))
   }
   // post: (req, res) => {
   //   helpers.post(req.body)

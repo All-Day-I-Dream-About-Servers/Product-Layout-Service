@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var productSchema = require('./schema.js');
-var mongoUri = 'mongodb://localhost/samples';
+var mongoUri = 'mongodb://localhost/samples2';
 // var mongoUri = 'mongodb://localhost/AdidasProducts';
 mongoose.Promise = global.Promise;
 

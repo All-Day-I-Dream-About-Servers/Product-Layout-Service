@@ -399,12 +399,12 @@ a:hover {
 #productName {
   box-sizing:border-box;
   color:rgb(0, 0, 0);
-  display:block;
+  /* display:block; */
   font-family:AdineuePRO, Helvetica, Arial, sans-serif;
   font-size:30px;
   font-style:normal;
   font-weight:800;
-  height:24px;
+  height:auto;
   line-height:24px;
   margin-bottom:7px;
   text-rendering:optimizelegibility;
@@ -1452,3 +1452,14 @@ ol, li {
 /* button {
   outline: none;
 } */
+
+#mc_review {
+  font-size: 14px;
+  margin: 0 0 0 5px;
+  padding: 0 1px
+}
+
+#star_box {
+  width :80px;
+  height: 16px;
+}

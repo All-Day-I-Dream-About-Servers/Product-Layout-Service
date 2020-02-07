@@ -7,7 +7,7 @@
 
 
   const server = express();
-  const port = 3003;
+  const port = 3002;
 
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({extended : true}));

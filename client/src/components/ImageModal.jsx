@@ -112,6 +112,4 @@ class ImageModal extends React.Component {
   }
 }
 
-// const props = {};
-
 export default ImageModal;

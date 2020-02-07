@@ -5,6 +5,13 @@ import Static_Shipping from './Static_Shipping.jsx'
 import Static_SizeGuide from './Static_SizeGuide.jsx'
 import ProductAddToBag from './ProductAddToBag.jsx'
 
+/*
+["https://adidas-product.s3-us-west-1.amazonaws.com/3mc-red.webp", "https://adidas-product.s3-us-west-1.amazonaws.com/adiease-purple-1.webp", "https://adidas-product.s3-us-west-1.amazonaws.com/adizero-beige-1.webp", "https://adidas-product.s3-us-west-1.amazonaws.com/five-ten-orange-1.webp", "https://adidas-product.s3-us-west-1.amazonaws.com/ultraboost-white-1.webp"]
+
+*/
+
+
+
 class ProductOrder extends React.Component {
 
   constructor (props) {
@@ -48,7 +55,15 @@ class ProductOrder extends React.Component {
 
   render(){
 
-    const {name, price, color, sizes, images} = this.props.product
+            // sku: 0,
+        // name: "",
+        // price: 0,
+        // color: [],
+        // sizes : [],
+        // review: 0,
+        // colorImages : [],
+        // images: []
+    const {name, price, color, sizes, images, colorImages, review} = this.props.product
     const quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const availColor = images[5]
     return (
@@ -60,19 +75,33 @@ class ProductOrder extends React.Component {
           <div className="orderDiv1">
             <div>
 
-              <div className="popup">stars
-                <span id="mc_review">Read all #ofReviews reviews</span>
+              <div className="popup">
+                <div id="star_box">stars
+                <svg class="gl-star-rating__star" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323"><linearGradient id="30309a3b-fb78-4376-9c13-6ec4456097b2">
+                  <stop offset="0%" stop-opacity="1" style="stop-color: currentcolor;"></stop>
+                  <stop offset="100%" stop-opacity="1" style="stop-color: currentcolor;"></stop>
+                  <stop offset="100%" stop-opacity="0" style="stop-color: currentcolor;"></stop>
+                  <stop offset="100%" stop-opacity="0" style="stop-color: currentcolor;"></stop>
+                  </linearGradient>
+                  <path class="gl-star-rating__outline" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  <path fill="url(#30309a3b-fb78-4376-9c13-6ec4456097b2)" class="gl-star-rating__fill" stroke="0" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  </svg>
+
+                </div>
+                <span id="mc_review">Read all {review} reviews</span>
               </div>
 
               <div id="subName">
                 <span>ORIGNALS</span>
               </div>
-
+              {/* <div> */}
               <h1 id="productName">
                 <strong>
                   {name}
                 </strong>
               </h1>
+              {/* </div> */}
+
 
               <div id="price">
                 <span>${price}</span>
@@ -102,14 +131,23 @@ class ProductOrder extends React.Component {
           <div><strong id="aColors">AVAILABLE COLORS</strong></div>
           <div><span id="subName">{color.join(' / ')}</span></div>
           <div id="availColors">
-            {images.map((image, index) => {
+
+            <div id="availColors_img_box">
+              <div id="color_icon">
+                <svg id="color_icon_svg" viewBox="0 0 17 19"><path fill="none" color="white" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" d="M1.5 10.5l4 4 10-10"></path></svg>
+              </div>
+              <img id="availColors_img" src={images[0]}/>
+            </div>
+
+            {colorImages.map((image, index) => {
               var ind = index;
               return (
                 <div id="availColors_img_box">
-                  { index === 0 ? (<div id="color_icon">
+                  {/* { index === 0 ? (
+                   <div id="color_icon">
                     <svg id="color_icon_svg" viewBox="0 0 17 19"><path fill="none" color="white" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" d="M1.5 10.5l4 4 10-10"></path></svg>
-                  </div>) : (<div> </div>)
-                  }
+                  </div>
+                    ) : (<div> </div>)} */}
                   <img id="availColors_img" src={image}/>
                 </div>
               )
