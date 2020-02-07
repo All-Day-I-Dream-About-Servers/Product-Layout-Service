@@ -1458,8 +1458,27 @@ ol, li {
   margin: 0 0 0 5px;
   padding: 0 1px
 }
+#mc_review:hover {
+  background-color: black;
+  color: white;
+}
 
 #star_box {
-  width :80px;
+  display: flex;
+  justify-content: space-around;
+  width: 80px;
   height: 16px;
+}
+
+.stars {
+  width :16px;
+  height: 16px;
+}
+
+#review_box{
+  display: flex;
+  flex-direction: row;
+  width : auto;
+  height: 21px;
+  /* justify-content: space-around; */
 }
