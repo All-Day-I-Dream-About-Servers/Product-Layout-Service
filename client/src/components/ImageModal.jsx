@@ -80,7 +80,7 @@ class ImageModal extends React.Component {
             {this.props.images.map((sideImg, index)=>{
               var ind = index;
               return(
-                <div className="sideImgBox">
+                <div className="sideImgBox" key={index}>
                   <img className="sideImg" onClick={() => this.handleThumnail(ind)} src={sideImg}/>
                 </div>
               )

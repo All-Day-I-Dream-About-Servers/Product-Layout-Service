@@ -48,7 +48,7 @@ class ProductOrder extends React.Component {
 
   render(){
 
-    const {name, price, colors, sizes, images} = this.props.product
+    const {name, price, color, sizes, images} = this.props.product
     const quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const availColor = images[5]
     return (
@@ -100,7 +100,7 @@ class ProductOrder extends React.Component {
 
         <div className="orderDiv2">
           <div><strong id="aColors">AVAILABLE COLORS</strong></div>
-          <div><span id="subName">{colors.join(' / ')}</span></div>
+          <div><span id="subName">{color.join(' / ')}</span></div>
           <div id="availColors">
             {images.map((image, index) => {
               var ind = index;

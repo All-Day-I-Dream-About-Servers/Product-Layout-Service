@@ -55,7 +55,7 @@ export default class ProductAddToBag extends Component {
   }
 
   render() {
-    const {name, price, colors, sizes, images} = this.props.product;
+    const {name, price, color, sizes, images} = this.props.product;
     const quantity = this.props.selectedQuantity;
     const size = this.props.selectedSize;
     var productCost = quantity * price;
@@ -113,7 +113,7 @@ export default class ProductAddToBag extends Component {
                           <div id="bag_name">{name}</div>
                           <div id="bag_body">${price}</div>
                           <div id="bag_body">
-                            Color: {colors[0]}<br/>
+                            Color: {color.join(' / ')}<br/>
                             Size: {size}<br/>
                             Quantity: {quantity}
                           </div>

@@ -6,8 +6,8 @@ router
   .get(controller.get)
   // .post(controller.post)
 
-router
-  .route('/products/:sku')
+// router
+  // .route('/products/:sku')
 //   .put(controller.put)
 //   .delete(controller.delete)
 
