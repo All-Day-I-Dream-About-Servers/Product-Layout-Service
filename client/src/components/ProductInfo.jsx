@@ -3,13 +3,14 @@ import ProductView from './ProductView.jsx'
 import ProductOrder from './ProductOrder.jsx'
 
 // 1, 2, 12, 30, 96
-var arr = [1, 2, 12, 30, 96];
-var randomIndex = () => Math.floor(Math.random() * Math.floor(5));
-var aIndex = randomIndex();
-var selected = arr[aIndex];
 
 
 const ProductInfo = (props) => {
+
+  var arr = [1, 2, 12, 30, 96];
+  var randomIndex = () => Math.floor(Math.random() * Math.floor(5));
+  var aIndex = randomIndex();
+  var selected = arr[props.sku % 5];``
 
   return(
     <div>
