@@ -82,6 +82,11 @@ html {
 
 } */
 .popup:hover {
+  transition-duration: .3s;
+  background-color: transparent;
+  color: transparent;
+}
+.popup:hover {
   background-color: black;
   color: white;
 }
@@ -397,9 +402,10 @@ a:hover {
 }
 
 #productName {
+  position: relative;
   box-sizing:border-box;
   color:rgb(0, 0, 0);
-  /* display:block; */
+  display:block;
   font-family:AdineuePRO, Helvetica, Arial, sans-serif;
   font-size:30px;
   font-style:normal;
@@ -411,9 +417,13 @@ a:hover {
   text-transform:uppercase;
   width:auto;
   -webkit-font-smoothing:antialiased;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #price {
+  position: relative;
   box-sizing:border-box;
 color:rgb(0, 0, 0);
 display:block;
@@ -425,7 +435,7 @@ height:21px;
 margin-right:0px;
 text-rendering:optimizelegibility;
 text-transform:none;
-width:34.8906px;
+width: auto;
 -webkit-font-smoothing:antialiased;
 }
 
@@ -532,6 +542,11 @@ writing-mode:horizontal-tb;
 -webkit-border-image:none;
 }
 
+#learnmore:hover {
+  transition-duration: .3s;
+  background-color: transparent;
+  color: transparent;
+}
 
 #learnmore:hover {
   background-color: black;
@@ -681,6 +696,7 @@ width:353.281px;
   font-style: normal;
   font-weight: 400;
   min-height: 720px;
+  height: auto;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -697,9 +713,15 @@ width:353.281px;
 }
 
 .orderDiv1 {
+  display: flex;
+  flex-direction: column;
+  /* height: 400px; */
   margin-bottom: 20px;
 }
-
+#review_name_box{
+  display: flex;
+  flex-direction: column;
+}
 #subName {
   box-sizing: border-box;
   color: rgb(118, 118, 119);
@@ -748,7 +770,7 @@ width:353.281px;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
-  height: 24px;
+  height: auto;
   letter-spacing: 1.5px;
   line-height: 24px;
   margin-block-end: 7px;
@@ -765,7 +787,7 @@ width:353.281px;
   padding-top: 0px;
   text-rendering: optimizelegibility;
   text-transform: uppercase;
-  width: 350.766px;
+  width: auto;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1221,6 +1243,16 @@ ol, li {
   transform: scale(-1, 1);
 }
 
+#mar_carousel_prev:hover{
+  transition-duration: .8s;
+  color: transparent;
+  background-color: rgb(235, 237, 238);
+}
+#mar_carousel_next:hover{
+  transition-duration: .8s;
+  color: transparent;
+  background-color: rgb(235, 237, 238);
+}
 #mar_carousel_next {
   color: black;
   background-color: rgb(235, 237, 238);
@@ -1228,6 +1260,7 @@ ol, li {
   width: 39px;
   height: 39px;
 }
+
 #mar_carousel_prev:hover,
 #mar_carousel_next:hover{
   color:white;
@@ -1270,6 +1303,16 @@ ol, li {
   border-radius: 0px;
 }
 
+#mainModalButton:hover{
+  transition-duration: .8s;
+  color: transparent;
+  background-color: transparent;
+}
+#mainModalButton:hover{
+  color: white;
+  background-color: black;
+}
+
 #closeButton_x {
   position: relative;
   left: 0px;
@@ -1296,7 +1339,7 @@ ol, li {
   transform: scale(1, 1);
 }
 #mainNext:hover{
-  transition-delay: right 1.5s;
+  transition-duration: left .5s;
   right:3%;
 }
 
@@ -1317,7 +1360,7 @@ ol, li {
 }
 
 #mainPrev:hover{
-  transition-delay: left 1.5s;
+  transition-duration: left .5s;
   left:3%;
 }
 
@@ -1458,6 +1501,13 @@ ol, li {
   margin: 0 0 0 5px;
   padding: 0 1px
 }
+
+#mc_review:hover {
+  transition-duration: .3s;
+  background-color: transparent;
+  color: transparent;
+}
+
 #mc_review:hover {
   background-color: black;
   color: white;
@@ -1476,6 +1526,7 @@ ol, li {
 }
 
 #review_box{
+  position: relative;
   display: flex;
   flex-direction: row;
   width : auto;

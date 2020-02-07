@@ -82,7 +82,7 @@ class ProductOrder extends React.Component {
 
         <div>
           <div className="orderDiv1">
-            <div>
+            <div id="review_name_box">
               <div id="review_box">
                 <div id="star_box">
                   <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
@@ -109,11 +109,9 @@ class ProductOrder extends React.Component {
                 <span>ORIGNALS</span>
               </div>
               {/* <div> */}
-              <h1 id="productName">
-                <strong>
-                  {name}
-                </strong>
-              </h1>
+              <div id="productName">
+                  <div>{name}</div>
+              </div>
               {/* </div> */}
 
 
