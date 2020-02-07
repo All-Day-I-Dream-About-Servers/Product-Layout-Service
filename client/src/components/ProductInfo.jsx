@@ -23,7 +23,7 @@ const ProductInfo = (props) => {
             <ProductOrder product={props.product}/>
           </div>
         </div>
-        )}
+      )}
     </div>
   )
 }

@@ -25,7 +25,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       products: [],
-      product : {}
+      product : {},
+      sku: window.location.pathname.slice(1,-1)
     }
     this.getProducts  = this.getProducts.bind(this);
   }
@@ -35,7 +36,7 @@ class App extends React.Component {
   }
 
   getProducts(){
-    axios.get(`http://localhost:3002/api/products`)
+    axios.get(`http://localhost:3002/${this.state.sku}/products`)
     .then((info) =>
       this.setState({
         products: info.data,
@@ -52,7 +53,7 @@ class App extends React.Component {
               productArr.push(product)
           )} */}
           {this.state.products.map((product, index) =>
-            <ProductInfo product={product}/>
+            <ProductInfo product={product} sku={this.state.sku}/>
           )}
           {/* {setTimeout(() => <ProductInfo product={this.state.products[0]}/>, 0)} */}
          {/* { this.state.product && <ProductInfo product={this.state.product}/>} */}

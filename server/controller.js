@@ -9,7 +9,7 @@ const controller = {
   },
   getOne: (req, res) => {
     helpers
-    .get(req.params.sku)
+    .get(req.baseUrl.slice(1))
     .then((info)=> res.status(200).send(info))
     .catch(err => res.status(400).send(err))
   }
