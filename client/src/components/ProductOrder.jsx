@@ -11,8 +11,8 @@ class ProductOrder extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      selectedSize: 'SELECT SIZE',
-      selectedQuantity: 0,
+      // selectedSize: 'SELECT SIZE',
+      // selectedQuantity: 0,
       favorite: false,
       sizeSelected : 'SELECT SIZE',
       quanSelected: 1,
@@ -58,28 +58,42 @@ class ProductOrder extends React.Component {
 
   handleSizeDropdown(e){
     e.preventDefault()
+    if(this.state.quanDropOpen){
+      this.setState({
+        quanDropOpen : !this.state.quanDropOpen,
+        sizeDropOpen : !this.state.sizeDropOpen
+      })
+    } else {
     this.setState({
       sizeDropOpen : !this.state.sizeDropOpen
-    })
+    })}
   }
-  handleQuanDropdown(){
+
+  handleQuanDropdown(e){
     e.preventDefault()
-    this.setState({
-      quanDropOpen : !this.state.quanDropOpen
-    })
+    if(this.state.sizeDropOpen){
+      this.setState({
+        quanDropOpen : !this.state.quanDropOpen,
+        sizeDropOpen : !this.state.sizeDropOpen
+      })
+    } else {
+      this.setState({
+        quanDropOpen : !this.state.quanDropOpen
+      })
+    }
   }
 
   handleSizeSelect(sz){
     this.setState({
-      quanSelected : sz
-    }, ()=> console.log(this.state.quanSelected))
+      sizeSelected : sz
+    }, ()=> console.log(this.state.sizeSelected))
   }
 
 
   handleQuanSelect(qt){
     this.setState({
-      selectedSize : qt
-    }, ()=> console.log(this.state.selectedSize))
+      quanSelected : qt
+    }, ()=> console.log(this.state.quanSelected))
   }
 
   render(){
@@ -93,7 +107,7 @@ class ProductOrder extends React.Component {
         // colorImages : [],
         // images: []
     const {name, price, color, size, images, colorImages, review} = this.props.product
-    const quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    const quanOption = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const availColor = images[5]
     return (
       <div className="orderContainer">
@@ -202,7 +216,7 @@ class ProductOrder extends React.Component {
                   when click trigger
                 */}
                 <span id="size_txt">
-                  {this.state.selectedSize}
+                  {this.state.sizeSelected}
                 {/* string showing here will be the size selected */}
                 </span>
                 <div id="caret">
@@ -228,36 +242,35 @@ class ProductOrder extends React.Component {
 
 
             <div id="selection_quan_box">
-              <div id="selection_quan_dropdown_btn">
-                  <span>
-                    {/* it will display selected quantity */}
-                    1
-                    {/* number showing here will be the quan selected */}
-                  </span>
-                  <div></div>
-                  <div id="caret">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>
-                  </div>
-                <div id="quan_drop_box">
-                  {/* <ul id="quan_drop_list">
-                    {quantities.map((quantity, index) =>
-                      <li id="quan_num_box" value={quantity} key={index}> */}
-                        {/* it will hold quantity lists
-                          each li will have a button that selects a quantity on the list
-                        */}
-                        {/* <button id="quan_num_box" value={quantity} key={index}>{quantity}</button>
-                      </li>
-                    )}
-                  </ul> */}
+              <div id="selection_quan_dropdown_btn" onClick={this.handleQuanDropdown}>
+                <span>
+                  {/* it will display selected quantity */}
+                  {this.state.quanSelected}
+                  {/* number showing here will be the quan selected */}
+                </span>
+                <div></div>
+                <div id="caret">
+                  {this.state.quanDropOpen ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>) : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 8a.997.997 0 00-.702.288l-5.005 5.005a1 1 0 001.414 1.414L12 10.415l4.295 4.295a1 1 0 001.412-1.417l-4.98-4.98A.997.997 0 0012 8z"/></svg>)}
                 </div>
-
-                {/* <select id="quan_list" name="selectedQuantity" onChange={this.handleSelect} >
-                  {quantities.map((quantity, index) =>
-                    <option value={quantity} key={index}>{quantity}</option>
-                  )}
-                </select> */}
               </div>
+                {this.state.quanDropOpen ? (
+                <div id="quan_drop_box" onClick={this.handleQuanDropdown}>
+                  {quanOption.map(qt =>
+                      <div id="drop_quan" onClick={() => this.handleQuanSelect(qt)}>
+                        <span id="quan_txt">
+                          {qt}
+                        </span>
+                      </div>
+                    )}
+              </div>
+                ) : (null)}
+
             </div>
+
+
+
+
+
           </div>
 
           <div id="bagAndFavorite">
