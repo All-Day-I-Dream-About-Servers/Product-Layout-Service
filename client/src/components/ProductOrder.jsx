@@ -11,8 +11,6 @@ class ProductOrder extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      // selectedSize: 'SELECT SIZE',
-      // selectedQuantity: 0,
       favorite: false,
       sizeSelected : 'SELECT SIZE',
       quanSelected: 1,
@@ -85,14 +83,16 @@ class ProductOrder extends React.Component {
 
   handleSizeSelect(sz){
     this.setState({
-      sizeSelected : sz
+      sizeSelected : sz,
+      sizeDropOpen : !this.state.sizeDropOpen
     }, ()=> console.log(this.state.sizeSelected))
   }
 
 
   handleQuanSelect(qt){
     this.setState({
-      quanSelected : qt
+      quanSelected : qt,
+      quanDropOpen : !this.state.quanDropOpen
     }, ()=> console.log(this.state.quanSelected))
   }
 
@@ -142,11 +142,11 @@ class ProductOrder extends React.Component {
               <div id="subName">
                 <span>ORIGNALS</span>
               </div>
-              {/* <div> */}
+
               <div id="productName">
                   <div>{name}</div>
               </div>
-              {/* </div> */}
+
 
 
               <div id="price">
@@ -229,7 +229,7 @@ class ProductOrder extends React.Component {
                   {/* conditional rendering when clicked */}
                   {size.map((sz =>
                     <div className="drop_size_content_box">
-                    <div id="drop_size" onClick={()=>this.handleSizeSelect(sz)} name={sz} value={sz}>
+                    <div id="drop_size" onClick={()=> this.handleSizeSelect(sz)}>
                       {sz}
                     </div>
                   </div>
@@ -274,7 +274,7 @@ class ProductOrder extends React.Component {
           </div>
 
           <div id="bagAndFavorite">
-            <ProductAddToBag product={this.props.product} selectedQuantity={this.state.selectedQuantity} selectedSize={this.state.selectedSize}/>
+            <ProductAddToBag product={this.props.product} quanSelected={this.state.quanSelected} sizeSelected={this.state.sizeSelected}/>
               <div id="fav" onClick={this.handleFavorite}>
                 { this.state.favorite ?
                 (<div id="fav_icon">

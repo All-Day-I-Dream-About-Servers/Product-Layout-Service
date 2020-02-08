@@ -38,12 +38,8 @@ export default class ProductAddToBag extends Component {
 
   handleAlert (e){
     e.preventDefault()
-    if(this.props.selectedSize === 'Select Size' && this.props.selectedQuantity === 0){
-      alert('selct size and quantity; need a change later')
-    } else if(this.props.selectedSize === 'Select Size'){
-      alert('select size; need a change later')
-    } else if(this.props.selectedQuantity === 0){
-      alert('select quantity; need a change later')
+    if(this.props.sizeSelected === 'SELECT SIZE'){
+      alert('SELECT SIZE')
     }
   }
 
@@ -55,9 +51,9 @@ export default class ProductAddToBag extends Component {
   }
 
   render() {
-    const {name, price, color, sizes, images} = this.props.product;
-    const quantity = this.props.selectedQuantity;
-    const size = this.props.selectedSize;
+    const {name, price, color, images} = this.props.product;
+    const quantity = this.props.quanSelected;
+    const size = this.props.sizeSelected;
     var productCost = quantity * price;
     var deliveryCost = 4.99;
     var totalCost = productCost + deliveryCost
@@ -65,6 +61,7 @@ export default class ProductAddToBag extends Component {
       deliveryCost = 'FREE';
       totalCost = productCost
     }
+
     return (
       <div id="bag_button_box">
           {(quantity === 0 || size ==='SELECT SIZE')?
