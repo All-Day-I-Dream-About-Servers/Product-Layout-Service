@@ -5,22 +5,6 @@ import Static_Shipping from './Static_Shipping.jsx'
 import Static_SizeGuide from './Static_SizeGuide.jsx'
 import ProductAddToBag from './ProductAddToBag.jsx'
 
-
-
-
-["https://adidas-product.s3-us-west-1.amazonaws.com/busenitz-green.webp",
-"https://adidas-product.s3-us-west-1.amazonaws.com/cloudfoam-pure-womens-grey-1.jpg",
-"https://adidas-product.s3-us-west-1.amazonaws.com/copa-turf-red-1.webp",
-"https://adidas-product.s3-us-west-1.amazonaws.com/disney-stan-1.webp",
-"https://adidas-product.s3-us-west-1.amazonaws.com/edge-grey-1.webp"
-]
-
-
-
-
-
-
-
 class ProductOrder extends React.Component {
 
   constructor (props) {
@@ -29,13 +13,22 @@ class ProductOrder extends React.Component {
       showModal: false,
       selectedSize: 'SELECT SIZE',
       selectedQuantity: 0,
-      favorite: false
+      favorite: false,
+      sizeSelected : 'SELECT SIZE',
+      quanSelected: 1,
+      sizeDropOpen: false,
+      quanDropOpen: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
+
+    this.handleSizeDropdown = this.handleSizeDropdown.bind(this)
+    this.handleQuanDropdown = this.handleQuanDropdown.bind(this)
+    this.handleSizeSelect = this.handleSizeSelect.bind(this)
+    this.handleQuanSelect = this.handleQuanSelect.bind(this)
   }
 
   handleOpenModal (e) {
@@ -62,6 +55,33 @@ class ProductOrder extends React.Component {
     })
   }
 
+
+  handleSizeDropdown(e){
+    e.preventDefault()
+    this.setState({
+      sizeDropOpen : !this.state.sizeDropOpen
+    })
+  }
+  handleQuanDropdown(){
+    e.preventDefault()
+    this.setState({
+      quanDropOpen : !this.state.quanDropOpen
+    })
+  }
+
+  handleSizeSelect(sz){
+    this.setState({
+      quanSelected : sz
+    }, ()=> console.log(this.state.quanSelected))
+  }
+
+
+  handleQuanSelect(qt){
+    this.setState({
+      selectedSize : qt
+    }, ()=> console.log(this.state.selectedSize))
+  }
+
   render(){
 
             // sku: 0,
@@ -72,7 +92,7 @@ class ProductOrder extends React.Component {
         // review: 0,
         // colorImages : [],
         // images: []
-    const {name, price, color, sizes, images, colorImages, review} = this.props.product
+    const {name, price, color, size, images, colorImages, review} = this.props.product
     const quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const availColor = images[5]
     return (
@@ -85,20 +105,20 @@ class ProductOrder extends React.Component {
             <div id="review_name_box">
               <div id="review_box">
                 <div id="star_box">
-                  <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
+                  <svg className="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
                           <path class="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
                   </svg>
-                  <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
-                          <path class="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  <svg className="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
+                          <path className="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
                   </svg>
-                  <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
-                          <path class="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  <svg className="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
+                          <path className="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
                   </svg>
-                  <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
-                          <path class="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  <svg className="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
+                          <path className="gl-star-rating__outline" fill="black" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
                   </svg>
-                  <svg class="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
-                          <path class="gl-star-rating__outline" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
+                  <svg className="stars" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" data-di-res-id="110c95ee-8fb3a8b3" data-di-rand="1581107329323">
+                          <path className="gl-star-rating__outline" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M13.277,6.182L9.697,8.782L11.057,12.992L7.487,10.392L3.907,12.992L5.277,8.782L1.697,6.182L6.117,6.182L7.487,1.992L8.857,6.182L13.277,6.182Z"></path>
                   </svg>
                 </div>
                 <span id="mc_review">Read all {review} reviews</span>
@@ -177,29 +197,31 @@ class ProductOrder extends React.Component {
           <div id="selection">
 
             <div id="selection_size_box">
-              <div id="selection_size_dropdown_btn">
+              <div id="selection_size_dropdown_btn" onClick={this.handleSizeDropdown}>
+                {/* click this btn will open the size dropdown
+                  when click trigger
+                */}
                 <span id="size_txt">
-                SELECT SIZE
+                  {this.state.selectedSize}
                 {/* string showing here will be the size selected */}
                 </span>
                 <div id="caret">
-                  {/* conditional rendering when clicked */}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>
+                  {/* conditional rendering when clicked handleSizeDropdown*/}
+                  {this.state.sizeDropOpen ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>) : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 8a.997.997 0 00-.702.288l-5.005 5.005a1 1 0 001.414 1.414L12 10.415l4.295 4.295a1 1 0 001.412-1.417l-4.98-4.98A.997.997 0 0012 8z"/></svg>)}
                 </div>
               </div>
-              <div id="selection_size_dropdown_box">
-                {/* conditional rendering when clicked */}
+              {this.state.sizeDropOpen ? (
+                <div id="selection_size_dropdown_box">
+                  {/* conditional rendering when clicked */}
+                  {size.map((sz =>
+                    <div className="drop_size_content_box">
+                    <div id="drop_size" onClick={()=>this.handleSizeSelect(sz)} name={sz} value={sz}>
+                      {sz}
+                    </div>
+                  </div>
+                  ))} </div>) :
+                (null)}
 
-                {/* <div class="drop_content">1</div>
-                <div class="drop_content">2</div>
-                <div class="drop_content">3</div>
-                <div class="drop_content">4</div>
-                <div class="drop_content">5</div>
-                <div class="drop_content">6</div>
-                <div class="drop_content">7</div>
-                <div class="drop_content">8</div>
-                <div class="drop_content">9</div> */}
-              </div>
             </div>
 
 {/* ------------------------------------------------------------------ */}
@@ -236,36 +258,7 @@ class ProductOrder extends React.Component {
                 </select> */}
               </div>
             </div>
-
-
-            {/* <select name="selectedSize" onChange={this.handleSelect}>
-                SELECT SIZE
-                {sizes.map((size, index)=>
-                  <option value={size} key={index}>{size}</option>
-                )}
-            </select>
-            <select name="selectedQuantity" onChange={this.handleSelect}>
-                  {quantities.map((quantity, index) =>
-                    <option value={quantity} key={index}>{quantity}</option>
-                  )}
-            </select> */}
-
-
-
           </div>
-          {/*  */}
-          {/* <select name="selectedSize" onChange={this.handleSelect}>
-                SELECT SIZE
-                {sizes.map((size, index)=>
-                  <option value={size} key={index}>{size}</option>
-                )}
-            </select>
-            <select name="selectedQuantity" onChange={this.handleSelect}>
-                  {quantities.map((quantity, index) =>
-                    <option value={quantity} key={index}>{quantity}</option>
-                  )}
-            </select> */}
-
 
           <div id="bagAndFavorite">
             <ProductAddToBag product={this.props.product} selectedQuantity={this.state.selectedQuantity} selectedSize={this.state.selectedSize}/>
