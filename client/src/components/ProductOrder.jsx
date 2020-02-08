@@ -22,7 +22,6 @@ class ProductOrder extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
-
     this.handleSizeDropdown = this.handleSizeDropdown.bind(this)
     this.handleQuanDropdown = this.handleQuanDropdown.bind(this)
     this.handleSizeSelect = this.handleSizeSelect.bind(this)
@@ -98,22 +97,10 @@ class ProductOrder extends React.Component {
 
   render(){
 
-            // sku: 0,
-        // name: "",
-        // price: 0,
-        // color: [],
-        // sizes : [],
-        // review: 0,
-        // colorImages : [],
-        // images: []
     const {name, price, color, size, images, colorImages, review} = this.props.product
     const quanOption = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    const availColor = images[5]
     return (
       <div className="orderContainer">
-
-
-
         <div>
           <div className="orderDiv1">
             <div id="review_name_box">
@@ -138,23 +125,16 @@ class ProductOrder extends React.Component {
                 <span id="mc_review">Read all {review} reviews</span>
                 <a></a>
               </div>
-
               <div id="subName">
                 <span>ORIGNALS</span>
               </div>
-
               <div id="productName">
                   <div>{name}</div>
               </div>
-
-
-
               <div id="price">
                 <span>${price}</span>
               </div>
-
             </div>
-
             <div id="installment">
               <span id="learn_1">
                 or 3 intrest-free payments of
@@ -170,14 +150,10 @@ class ProductOrder extends React.Component {
             <span>This Product is excluded from all promotional discounts and offers.</span>
           </div>
         </div>
-
-
-
         <div className="orderDiv2">
           <div><strong id="aColors">AVAILABLE COLORS</strong></div>
           <div><span id="subName">{color.join(' / ')}</span></div>
           <div id="availColors">
-
             <div id="availColors_img_box">
               <div id="color_icon">
                 <svg id="color_icon_svg" viewBox="0 0 17 19"><path fill="none" color="white" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" d="M1.5 10.5l4 4 10-10"></path></svg>
@@ -200,33 +176,22 @@ class ProductOrder extends React.Component {
             })}
           </div>
         </div>
-
         <div className="orderDiv3">
-
           <div id="sizeguide">
                 <Static_SizeGuide />
           </div>
-{/* ------------------------------------------------------------------ */}
-
           <div id="selection">
-
             <div id="selection_size_box">
               <div id="selection_size_dropdown_btn" onClick={this.handleSizeDropdown}>
-                {/* click this btn will open the size dropdown
-                  when click trigger
-                */}
                 <span id="size_txt">
                   {this.state.sizeSelected}
-                {/* string showing here will be the size selected */}
                 </span>
                 <div id="caret">
-                  {/* conditional rendering when clicked handleSizeDropdown*/}
                   {this.state.sizeDropOpen ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>) : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 8a.997.997 0 00-.702.288l-5.005 5.005a1 1 0 001.414 1.414L12 10.415l4.295 4.295a1 1 0 001.412-1.417l-4.98-4.98A.997.997 0 0012 8z"/></svg>)}
                 </div>
               </div>
               {this.state.sizeDropOpen ? (
                 <div id="selection_size_dropdown_box">
-                  {/* conditional rendering when clicked */}
                   {size.map((sz =>
                     <div className="drop_size_content_box">
                     <div id="drop_size" onClick={()=> this.handleSizeSelect(sz)}>
@@ -235,18 +200,11 @@ class ProductOrder extends React.Component {
                   </div>
                   ))} </div>) :
                 (null)}
-
             </div>
-
-{/* ------------------------------------------------------------------ */}
-
-
             <div id="selection_quan_box">
               <div id="selection_quan_dropdown_btn" onClick={this.handleQuanDropdown}>
                 <span>
-                  {/* it will display selected quantity */}
                   {this.state.quanSelected}
-                  {/* number showing here will be the quan selected */}
                 </span>
                 <div></div>
                 <div id="caret">
@@ -264,15 +222,8 @@ class ProductOrder extends React.Component {
                     )}
               </div>
                 ) : (null)}
-
             </div>
-
-
-
-
-
           </div>
-
           <div id="bagAndFavorite">
             <ProductAddToBag product={this.props.product} quanSelected={this.state.quanSelected} sizeSelected={this.state.sizeSelected}/>
               <div id="fav" onClick={this.handleFavorite}>
@@ -284,16 +235,13 @@ class ProductOrder extends React.Component {
               </div>)}
             </div>
           </div>
-
           <div id="shippingBox">
             <Static_Shipping />
           </div>
-
           <div id="paypalBox">
             <Static_PayPal />
           </div>
         </div>
-
       </div>
     )
   }

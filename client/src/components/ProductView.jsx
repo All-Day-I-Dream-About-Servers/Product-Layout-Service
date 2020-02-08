@@ -1,31 +1,18 @@
 import React from 'react';
-// import ImagePopup from './ImagePopup.jsx'
 import ImageModal from './ImageModal.jsx'
 import Magnify from './Magnify.jsx'
 
-class ProductView extends React.Component {
+const ProductView = (props) => {
 
-  constructor(props) {
-    super(props)
+  const {images} = props.product
 
-    this.state = {
-
-    }
-  }
-
-
-  render(){
-
-    const {images} = this.props.product
-
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          <ImageModal images={images}/>
-        </div>
+        <ImageModal images={images}/>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default ProductView;

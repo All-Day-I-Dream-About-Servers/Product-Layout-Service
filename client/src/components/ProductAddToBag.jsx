@@ -87,11 +87,9 @@ export default class ProductAddToBag extends Component {
 
 
           <ReactModal isOpen={this.state.showModal} style={customStyles} overlayClassName="Overlay" modalImageClassName="modalImage_open">
-
-                <button onClick={this.handleCloseModal} id="mainModalButton">
-                  <span id="closeButton_x">✕</span>
-                </button>
-
+            <button onClick={this.handleCloseModal} id="mainModalButton">
+              <span id="closeButton_x">✕</span>
+            </button>
             <div id="bag_container">
                 <div className="info_head">
                   SUCCESSFULLY ADDED TO BAG!
