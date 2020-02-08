@@ -8,7 +8,8 @@ const customStyles = {
     right                 : '20%',
     bottom                : 'auto',
     padding: '20px',
-    'border-radius': '0%'
+    'border-radius': '0%',
+    'overflow' : 'scroll'
   }
 };
 
@@ -53,6 +54,8 @@ export default class Static_SizeGuide extends Component {
               <div className="info_body">
                 size guide screen shot will be here
               </div>
+              <img src="../../dist/sizeguide1.png"/>
+              <img src="../../dist/sizeguide2.png"/>
         </ReactModal>
       </div>
     )
