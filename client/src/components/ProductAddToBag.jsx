@@ -100,13 +100,13 @@ export default class ProductAddToBag extends Component {
                     <div id="bag_left_sep">
                       <div id="bag_left_left">
                         <div id="bagImg">
-                          <img id="bagImg" src=''/>
+                          <img id="bagImg" src={images[0]}/>
                         </div>
                       </div>
                       <div id="bag_left_right">
                         <div id="bag_left_right_content">
                           <div id="bag_name">{name}</div>
-                          <div id="bag_body">${price}</div>
+                          <div id="bag_body_price"> ${price}</div>
                           <div id="bag_body">
                             Color: {color.join(' / ')}<br/>
                             Size: {size}<br/>
@@ -116,7 +116,7 @@ export default class ProductAddToBag extends Component {
                       </div>
                     </div>
                   </div>
-
+                  <div></div>
                   <div id="bag_div_right">
                     <div id="bag_right_sep">
                       <div id="your_bag">Your Bag</div>
@@ -124,13 +124,14 @@ export default class ProductAddToBag extends Component {
                       <div id="bag_price_rows">
                         <div id="bag_price_left">
                           <div>
-                            <span id="bag_body">Total Product Cost:</span><br/>
-                            <span id="bag_body">Total delivery Cost:</span>
+                            <span id="bag_body2">Total Product Cost:</span><br/>
+                            <span id="bag_body2">Total Delivery Cost:</span>
                           </div>
                         </div>
+                        <div></div>
                         <div id="bag_price_right">
                           <div>
-                            <span id="bag_body">${productCost}</span> <br/>
+                            <span id="bag_body">${productCost}.00</span> <br/>
                             {typeof deliveryCost === 'string' ? (<span id="bag_body">{deliveryCost} </span>) :
                             (<span id="bag_body">${deliveryCost}</span>
                             )}
@@ -143,7 +144,7 @@ export default class ProductAddToBag extends Component {
                           <span><strong id="bag_total">Total:</strong></span>
                         </div>
                         <div id="bag_price_right">
-                          <span id="bag_total_cost"><strong>${totalCost}</strong></span>
+                          <span id="bag_total_cost"><strong>${totalCost}.00</strong></span>
                         </div>
                       </div>
                       <div id="bag_out">
@@ -157,13 +158,24 @@ export default class ProductAddToBag extends Component {
                     </div>
 
                     <div className="bagFlexBoxright">
-                      <div>-------------------------------------------------------</div>
-                      <button>VIEW BAG
-                        <a>(to bag page)</a>
-                      </button><br/>
-                      <button>GO TO CHECKOUT
-                        <a>(to checkout page)</a>
-                      </button>
+                    <button id="bag_button">
+                      <div id="bag_button_txt">VIEW BAG</div>
+                      <div></div>
+                      <div id="bag_button_icon">
+                      <svg id="arrow-right-long" viewBox="0 -5 30 30" >
+                            <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></path>
+                        </svg>
+                      </div>
+                    </button>
+                    <div id="bag_button2">
+                      <div id="bag_button_txt2">GO TO CHECKOUT</div>
+                      <div></div>
+                      <div id="bag_button_icon2">
+                        <svg id="arrow-right-long" viewBox="0 -5 30 30" >
+                            <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></path>
+                        </svg>
+                      </div>
+                    </div>
                     </div>
                   </div>
               </div>

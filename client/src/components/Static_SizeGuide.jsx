@@ -51,11 +51,13 @@ export default class Static_SizeGuide extends Component {
               <div className="info_head">
                 SIZE GUIDE
               </div>
-              <div className="info_body">
-                size guide screen shot will be here
+              <div className="info_head">
+              MEN'S AND WOMEN'S ADIDAS FOOTWEAR SIZING
               </div>
-              <img src="../../dist/sizeguide1.png"/>
-              <img src="../../dist/sizeguide2.png"/>
+              <div>
+                <img src="../../dist/sizeguide1.png"/>
+                <img src="../../dist/sizeguide2.png"/>
+              </div>
         </ReactModal>
       </div>
     )
