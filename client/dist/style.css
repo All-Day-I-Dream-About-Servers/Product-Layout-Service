@@ -976,58 +976,130 @@ width:353.281px;
   position: relative;
   height: 60px;
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
 }
 
 #selection_size_box {
+  flex-grow: 3;
+  cursor: pointer;
+  position: static;
   height: 60px;
+  width: auto;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+
+  border-width: 1px;
+  /* border-style: solid; */
+  border-color: rgb(118, 118, 119);
+  border-image: initial;
+  border-radius: 0px;
+}
+
+#selection_size_dropdown_btn {
+  height: 50px;
+  position: relative;
+  width: auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  border: solid;
+  border-width: 1px;
+
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+#size_txt{
+  height: 24px;
+  width: auto;
 }
 
 #selection_size_dropdown_box {
-  height: 50px;
+  /*height: 50px;
   position: static;
   margin-bottom: 10px;
   font-family: AdihausDIN, Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; */
 }
 
-#selection_size_dropdown {
-  height: 50px;
+#caret{
+  height: 20px;
+  width:20px;
 }
+
+.drop_content {
+  border : black;
+  border-style: solid;
+  position: relative;
+  width: 115px;
+  height: 40px;
+  margin: 0 5px 5px 0;
+  padding: 14px;
+  border-style: solid;
+  z-index: 1;
+  /* overflow-x: hidden; */
+}
+
+
 
 #selection_quan_box {
+  flex-grow: 1;
+  cursor: pointer;
+  position: static;
   height: 60px;
   padding-left: 10px;
-}
-
-#selection_size_dropdown {
-  height: 50px;
-}
-
-#quan_drop_button {
-  height: 50px;
-  /* cursor: pointer; */
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-  justify-content: space-between;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  font-family: AdihausDIN, Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  width: 100%;
-  padding: 0px 20px;
+  width: auto;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-style: normal;
+  font-weight: 400;
   border-width: 1px;
-  border-style: solid;
+  /* border-style: solid; */
   border-color: rgb(118, 118, 119);
   border-image: initial;
   border-radius: 0px;
-  transition: border 0.1s cubic-bezier(0.3, 0, 0.45, 1) 0s;
+}
+
+#selection_quan_dropdown_btn {
+  height: 50px;
+  position: relative;
+  width: auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  border: solid;
+  border-width: 1px;
+
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+#selection_size_dropdown {
+}
+
+#quan_drop_button {
 }
 
 #bagAndFavorite {

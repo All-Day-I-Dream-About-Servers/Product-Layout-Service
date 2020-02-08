@@ -167,36 +167,55 @@ class ProductOrder extends React.Component {
           </div>
         </div>
 
-
         <div className="orderDiv3">
 
           <div id="sizeguide">
                 <Static_SizeGuide />
           </div>
+{/* ------------------------------------------------------------------ */}
 
           <div id="selection">
 
             <div id="selection_size_box">
+              <div id="selection_size_dropdown_btn">
+                <span id="size_txt">
+                SELECT SIZE
+                {/* string showing here will be the size selected */}
+                </span>
+                <div id="caret">
+                  {/* conditional rendering when clicked */}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>
+                </div>
+              </div>
               <div id="selection_size_dropdown_box">
+                {/* conditional rendering when clicked */}
 
-                <div id="selection_size_dropdown"></div>
-
+                {/* <div class="drop_content">1</div>
+                <div class="drop_content">2</div>
+                <div class="drop_content">3</div>
+                <div class="drop_content">4</div>
+                <div class="drop_content">5</div>
+                <div class="drop_content">6</div>
+                <div class="drop_content">7</div>
+                <div class="drop_content">8</div>
+                <div class="drop_content">9</div> */}
               </div>
             </div>
 
-            <div id="selection_quan_box">
-              <div id="selection_quan_dropdown_box">
-                <div id="selection_size_dropdown" >
+{/* ------------------------------------------------------------------ */}
 
-                <button id="quan_drop_button">
+
+            <div id="selection_quan_box">
+              <div id="selection_quan_dropdown_btn">
                   <span>
                     {/* it will display selected quantity */}
+                    1
+                    {/* number showing here will be the quan selected */}
                   </span>
-                  <svg>
-                    {/* drop arrow / up arrow */}
-                  </svg>
-                </button>
-
+                  <div></div>
+                  <div id="caret">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 20 20"><path color="black" d="M12 16c.273 0 .521-.11.702-.288l5.005-5.005a1 1 0 00-1.414-1.414L12 13.586 7.705 9.29a1 1 0 00-1.412 1.417l4.98 4.98c.182.193.44.313.727.313z"/></svg>
+                  </div>
                 <div id="quan_drop_box">
                   {/* <ul id="quan_drop_list">
                     {quantities.map((quantity, index) =>
@@ -215,8 +234,6 @@ class ProductOrder extends React.Component {
                     <option value={quantity} key={index}>{quantity}</option>
                   )}
                 </select> */}
-
-                </div>
               </div>
             </div>
 
