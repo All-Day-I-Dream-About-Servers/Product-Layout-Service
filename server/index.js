@@ -14,6 +14,6 @@
   server.use(morgan('dev'));
   server.use(cors());
 
-  server.use('/:sku', router)
-  server.use('/:sku', express.static(path.join(__dirname,'../client/dist')));
+  server.use('/:id', router)
+  server.use('/:id', express.static(path.join(__dirname,'../client/dist')));
   server.listen(port, () => console.log(`Connected to port: ${port}`))
