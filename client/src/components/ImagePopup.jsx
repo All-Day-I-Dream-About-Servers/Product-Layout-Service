@@ -32,20 +32,19 @@ class ImagePopup extends React.Component {
       <div>
         <section className="carousel">
           <ol className="carousel__viewport">
-          {/*
+{/*
             {this.props.images.map((image, index) => {
-            var liId = `carousel_slide${index}`;
+            var liId = 'carousel_slide' + JSON.stringify(index);
             if (index === 0) {
-              var prevId = `#carousel__slide${numberOfImages}`;
-              var nextId = `#carousel__slide${index + 1}`;
+              var prevId = '#carousel__slide' + JSON.stringify(numberOfImages);
+              var nextId = '#carousel__slide' + JSON.stringify(index + 1);
             } else if (index === numberOfImages) {
-              var prevId = `#carousel__slide${index - 1}`;
-              var nextId = `#carousel__slide0`;
+              var prevId = '#carousel__slide' + JSON.stringify(index - 1);
+              var nextId = '#carousel__slide0';
             } else {
-              var prevId = `#carousel__slide${index - 1}`;
-              var nextId = `#carousel__slide${index + 1}`;
+              var prevId = '#carousel__slide' + JSON.stringify(index - 1);
+              var nextId = '#carousel__slide' + JSON.stringify(index + 1);
             }
-            console.log(liId,' / ', prevId,' / ', nextId)
             return (
               <li id={liId} tabIndex="0" className="carousel__slide" >
                   <div onClick={this.zoomClickHandle}>
@@ -60,29 +59,29 @@ class ImagePopup extends React.Component {
                   )}
                   </div>
                   <button className="carousel__snapper_prev">
-                    <a href={prevId} className="carousel__prev">
+                      <a href={prevId} className="carousel__prev">
                       <div id="mar_carousel_prev">
                         <svg viewBox="-6 -8 40 40"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></path>
                         </svg>
                       </div>
-                    Go to last slide
-                    </a>
+                      Go to last slide
+                      </a>
                   </button>
                   <button className="carousel__snapper_next">
-                    <a href={nextId} className="carousel__next">
+                      <a href={nextId} className="carousel__next">
                       <div id="mar_carousel_next">
                         <svg viewBox="-9 -8 40 40"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></path>
                         </svg>
                       </div>
-                    Go to next slide</a>
+                      Go to next slide</a>
                   </button>
                 </li>
             )})}
-                  */}
+  /*}
 
                 {/* --------------------------------- */}
 
-            <li id="carousel__slide1" tabIndex="0" className="carousel__slide" >
+             <li id="carousel__slide1" tabIndex="0" className="carousel__slide" >
               <div onClick={this.zoomClickHandle}>
               {this.state.zoomOn ? (
                 <Magnify image={this.props.images[0]} onClick={this.zoomClickHandle}/>
