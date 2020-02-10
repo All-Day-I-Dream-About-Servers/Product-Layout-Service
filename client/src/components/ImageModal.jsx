@@ -14,6 +14,7 @@ const customStyles = {
     'padding-right':'0',
     'padding-top': '20px',
     'outline:focus': 'none'
+    
   }
 };
 

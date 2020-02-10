@@ -113,20 +113,28 @@
 .mainImage {
   height: 720px;
   width: 720px;
+  cursor: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0' y='0' width='40px' height='40px' viewBox='0 0 35 35' background-color='white' style='' xml:space='preserve'%3E %3Cpath d='M19.002 6.42l-4.295 4.287a1 1 0 01-1.414-1.415L17.583 5h-2.58a1 1 0 110-2h5.006a.997.997 0 01.992 1.029V9a1 1 0 01-2 .004l.001-2.584zM5 17.58l4.296-4.287a1 1 0 011.414 1.414L6.419 19H9a1 1 0 110 2H3.993A.997.997 0 013 19.97V15a1 1 0 012-.004v2.584z'/%3E %3C/svg%3E"), pointer;
 }
+
+
 .mainImageBox:hover {
-  cursor: url(/client/dist/expand-icon.png) 24 24,auto;
+  /* cursor: url(/client/dist/expand-icon.png) 24 24,auto; */
+  /* background-color: white; */
+  /* border-radius: 50%; */
+  /* enable-background:new 0 0 50 50; */
+  /* height: 30px; width: 30px; */
+  /* cx: 32;
+  cy :32;
+  r :32; */
+  /* circle cx='32' cy='32' r='32' style='fill: red;' */
 }
 
 
 .CImage {
   height: 720px;
   width: 720px;
-
-  cursor: url(/client/dist/expand-icon.png) 24 24,auto;
-}
-.CImage:hover {
-  cursor: pointer;
+  cursor: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0' y='0' width='40px' height='40px' viewBox='0 0 23 23' background-color='white' style='' xml:space='preserve'%3E %3Cpath d='M11 11H6a1 1 0 000 2h5v5a1 1 0 002 0v-5h5a1 1 0 000-2h-5V6a1 1 0 00-2 0v5z'/%3E %3C/svg%3E"), pointer;
+  /* cursor: url(/client/dist/expand-icon.png) 24 24,auto; */
 }
 
 #imageHolder {
